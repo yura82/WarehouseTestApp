@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WareHouseB" Class="WarehouseLINQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-055DV4EE;Initial Catalog=WareHouseB;Integrated Security=True" SettingsObjectName="WarehouseTestApp.Properties.Settings" SettingsPropertyName="WareHouseBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Klant" Member="Klants">
+    <Type Name="Klant">
+      <Column Name="KlantId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Voornaam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Achternaam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Straatnaam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Huisnummer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gemeente" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Telefoonnummer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Emaiadress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AangemaaktOp" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Opmerking" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categorie" Member="Categories">
+    <Type Name="Categorie">
+      <Column Name="CategorieID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategorieNaam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bestelling" Member="Bestellings">
+    <Type Name="Bestelling">
+      <Column Name="BestellingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DatumOpgemaakt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PersoneelslidID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeverancierID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KlantID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BestellingProduct" Member="BestellingProducts">
+    <Type Name="BestellingProduct">
+      <Column Name="BestellingProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BestellingID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Leverancier" Member="Leveranciers">
+    <Type Name="Leverancier">
+      <Column Name="LeverancierID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Contactpersoon" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Telefoonnummer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Emailadres" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Straatnaam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Huisnummer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gemeente" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Paswoord" Member="Paswoords">
+    <Type Name="Paswoord">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserPaswoord" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personeelslid" Member="Personeelslids">
+    <Type Name="Personeelslid">
+      <Column Name="PersoneelslidID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Voornaam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Naam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Inkoopprijs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Marge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Eenheid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BTW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeverancierID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CategorieID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
